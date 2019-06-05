@@ -1,13 +1,14 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "30f64244-e7a1-4ec7-a516-e23dd3455aff",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "B_bamboo_5": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "e52aa553-af72-440b-b7a5-fc46ce134e8b",
       "rawTextureUuid": "30f64244-e7a1-4ec7-a516-e23dd3455aff",
       "trimType": "auto",

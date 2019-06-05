@@ -1,13 +1,14 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "cb301ca5-df49-484a-9cfb-6192288b56ef",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "creatroom13": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "12e8bd3b-0771-43fb-a746-193612cbd975",
       "rawTextureUuid": "cb301ca5-df49-484a-9cfb-6192288b56ef",
       "trimType": "auto",

@@ -9,7 +9,7 @@
   "type": "Texture Packer",
   "subMetas": {
     "xiongmao1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "6df48294-00fd-4003-bee3-14447d7cceb0",
       "rawTextureUuid": "2c9b7b23-1d41-4a46-bb3d-59f276d1d239",
       "trimType": "auto",
@@ -31,7 +31,7 @@
       "subMetas": {}
     },
     "xiongmao2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "9b2e97ec-e82c-4602-b9b7-3c073095962d",
       "rawTextureUuid": "2c9b7b23-1d41-4a46-bb3d-59f276d1d239",
       "trimType": "auto",
@@ -53,7 +53,7 @@
       "subMetas": {}
     },
     "xiongmao3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "5368328b-77a9-48e3-9398-ff4265ba65ed",
       "rawTextureUuid": "2c9b7b23-1d41-4a46-bb3d-59f276d1d239",
       "trimType": "auto",

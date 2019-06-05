@@ -1,13 +1,14 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "5eec799d-19eb-4553-9382-2ac0e65e63be",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "fangkaxiaobeijing": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "56be11b4-9c6a-4350-b4ab-d660a127e72e",
       "rawTextureUuid": "5eec799d-19eb-4553-9382-2ac0e65e63be",
       "trimType": "auto",
