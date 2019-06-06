@@ -187,6 +187,7 @@ exports.start = function(conf,mgr){
 				return;
 			}
 			var pai = data;
+			socket.gameMgr.stopCountdown();
 			socket.gameMgr.chuPai(socket.userId,pai);
 		});
 		

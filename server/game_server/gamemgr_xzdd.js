@@ -5,6 +5,7 @@ var db = require("../utils/db");
 var crypto = require("../utils/crypto");
 var games = {};
 var gamesIdBase = 0;
+var countdownObject;
 
 var ACTION_CHUPAI = 1;
 var ACTION_MOPAI = 2;
@@ -436,6 +437,7 @@ function doUserMoPai(game){
     //广播通知玩家出牌方
     turnSeat.canChuPai = true;
     userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
+    exports.startCountdown(turnSeat.userId,10);
 
     //通知玩家做对应操作
     sendOperations(game,turnSeat,game.chuPai);
@@ -1492,6 +1494,7 @@ exports.dingQue = function(userId,type){
         //通知玩家出牌方
         turnSeat.canChuPai = true;
         userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
+        exports.startCountdown(turnSeat.userId,10);
         //检查是否可以暗杠或者胡
         //直杠
         checkCanAnGang(game,turnSeat);
@@ -1684,6 +1687,7 @@ exports.peng = function(userId){
     //广播通知玩家出牌方
     seatData.canChuPai = true;
     userMgr.broacastInRoom('game_chupai_push',seatData.userId,seatData.userId,true);
+    exports.startCountdown(seatData.userId,10);
 };
 
 exports.isPlaying = function(userId){
@@ -2239,7 +2243,46 @@ exports.dissolveAgree = function(roomId,userId,agree){
     return roomInfo;
 };
 
+/**
+ * 开始出牌倒计时
+ */
+exports.startCountdown = function(userId,time){
+    console.log("开始出牌倒计时");
+    if(countdownObject != null){
+        exports.stopCountdown();
+    }
+    countdownObject = setTimeout(function(){
+        console.log("出牌超时");
+        let seatData = gameSeatsOfUsers[userId];
+        let pai;
+        //优先出定缺的牌
+        for(let i = seatData.holds.length - 1; i >= 0; i--){
+            console.log('循环');
+            if(getMJType(seatData.holds[i]) == seatData.que){
+                pai = seatData.holds[i];
+                break;
+            }
+        }
+        //牌库中没有定缺的牌则出最后一张牌
+        if(pai == null){
+            pai = seatData.holds[seatData.holds.length - 1];
+        }
 
+        console.log("强制出牌userId:", userId, " pai:", pai);
+        exports.chuPai(userId,pai);
+    }, 1000 * time);
+};
+
+/**
+ * 停止出牌倒计时
+ */
+exports.stopCountdown = function(){
+    if(countdownObject != null){
+        console.log("停止出牌倒计时");
+        clearTimeout(countdownObject);
+        countdownObject = null;
+    }
+};
 
 function update() {
     for(var i = dissolvingList.length - 1; i >= 0; --i){
