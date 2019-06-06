@@ -6,6 +6,11 @@ var crypto = require("../utils/crypto");
 var games = {};
 var gamesIdBase = 0;
 var countdownObject;
+const countEnum = {
+    chupai:0,
+    dingque:1,
+    mingpai:2
+};
 
 var ACTION_CHUPAI = 1;
 var ACTION_MOPAI = 2;
@@ -437,7 +442,7 @@ function doUserMoPai(game){
     //广播通知玩家出牌方
     turnSeat.canChuPai = true;
     userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
-    exports.startCountdown(turnSeat.userId,10);
+    exports.startCountdown(countEnum.chupai, 10, turnSeat.userId);
 
     //通知玩家做对应操作
     sendOperations(game,turnSeat,game.chuPai);
@@ -1310,6 +1315,7 @@ exports.begin = function(roomId) {
             userMgr.sendMsg(s.userId,'game_dingque_push');
         }
     }
+    exports.startCountdown(countEnum.dingque, 15, seats[0].userId);
 };
 
 exports.huanSanZhang = function(userId,p1,p2,p3){
@@ -1441,6 +1447,7 @@ exports.huanSanZhang = function(userId,p1,p2,p3){
         //通知准备定缺
         userMgr.sendMsg(userId,'game_dingque_push');
     }
+    exports.startCountdown(countEnum.dingque, 15, userId);
 };
 
 exports.dingQue = function(userId,type){
@@ -1494,7 +1501,7 @@ exports.dingQue = function(userId,type){
         //通知玩家出牌方
         turnSeat.canChuPai = true;
         userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
-        exports.startCountdown(turnSeat.userId,10);
+        exports.startCountdown(countEnum.chupai, 10, turnSeat.userId);
         //检查是否可以暗杠或者胡
         //直杠
         checkCanAnGang(game,turnSeat);
@@ -1687,7 +1694,7 @@ exports.peng = function(userId){
     //广播通知玩家出牌方
     seatData.canChuPai = true;
     userMgr.broacastInRoom('game_chupai_push',seatData.userId,seatData.userId,true);
-    exports.startCountdown(seatData.userId,10);
+    exports.startCountdown(countEnum.chupai, 10, seatData.userId);
 };
 
 exports.isPlaying = function(userId){
@@ -2244,37 +2251,30 @@ exports.dissolveAgree = function(roomId,userId,agree){
 };
 
 /**
- * 开始出牌倒计时
+ * 开始倒计时
  */
-exports.startCountdown = function(userId,time){
-    console.log("开始出牌倒计时");
+exports.startCountdown = function(countTag, time, userId){
+    console.log("开始倒计时,Tag:", countTag);
     if(countdownObject != null){
         exports.stopCountdown();
     }
     countdownObject = setTimeout(function(){
-        console.log("出牌超时");
-        let seatData = gameSeatsOfUsers[userId];
-        let pai;
-        //优先出定缺的牌
-        for(let i = seatData.holds.length - 1; i >= 0; i--){
-            console.log('循环');
-            if(getMJType(seatData.holds[i]) == seatData.que){
-                pai = seatData.holds[i];
+        switch(countTag) {
+            case countEnum.chupai:
+                chupaiTimeout(userId);
                 break;
-            }
+            case countEnum.dingque:
+                dingqueTimeout(userId);
+                break;
+            case countEnum.mingpai:
+                mingpaiTimeout();
+                break;
         }
-        //牌库中没有定缺的牌则出最后一张牌
-        if(pai == null){
-            pai = seatData.holds[seatData.holds.length - 1];
-        }
-
-        console.log("强制出牌userId:", userId, " pai:", pai);
-        exports.chuPai(userId,pai);
     }, 1000 * time);
 };
 
 /**
- * 停止出牌倒计时
+ * 停止倒计时
  */
 exports.stopCountdown = function(){
     if(countdownObject != null){
@@ -2283,6 +2283,53 @@ exports.stopCountdown = function(){
         countdownObject = null;
     }
 };
+
+/**
+ * 出牌超时
+ * @param userId
+ */
+function chupaiTimeout(userId) {
+    console.log("出牌超时");
+    let seatData = gameSeatsOfUsers[userId];
+    let pai;
+    //优先出定缺的牌
+    for(let i = seatData.holds.length - 1; i >= 0; i--){
+        if(getMJType(seatData.holds[i]) == seatData.que){
+            pai = seatData.holds[i];
+            break;
+        }
+    }
+    //牌库中没有定缺的牌则出最后一张牌
+    if(pai == null){
+        pai = seatData.holds[seatData.holds.length - 1];
+    }
+
+    console.log("强制出牌userId:", userId, " pai:", pai);
+    exports.chuPai(userId,pai);
+}
+
+/**
+ * 定缺超时
+ */
+function dingqueTimeout(userId) {
+    console.log("定缺超时");
+    let seatData = gameSeatsOfUsers[userId];
+    let userIds = seatData.game.gameSeats;
+    for(let i = 0; i < userIds.length; ++i){
+        let userId = userIds[i].userId;
+        console.log("循环", i+1, gameSeatsOfUsers[userId].que);
+        if(gameSeatsOfUsers[userId].que == -1){
+            exports.dingQue(userId, 0);
+        }
+    }
+}
+
+/**
+ * 鸣牌超时
+ */
+function mingpaiTimeout() {
+    console.log("鸣牌超时");
+}
 
 function update() {
     for(var i = dissolvingList.length - 1; i >= 0; --i){

@@ -39,6 +39,12 @@ cc.Class({
             self._time = 10;
             self._alertTime = 3;
         });
+
+        this.node.on('game_dingque',function(data){
+            self.initPointer();
+            self._time = 15;
+            self._alertTime = 3;
+        });
     }, 
     
     initPointer:function(){
