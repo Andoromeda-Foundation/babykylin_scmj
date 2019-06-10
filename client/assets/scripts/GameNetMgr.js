@@ -531,6 +531,11 @@ cc.Class({
         cc.vv.net.addHandler("voice_msg_push",function(data){
             self.dispatchEvent("voice_msg",data);
         });
+
+        cc.vv.net.addHandler("game_countdown_push",function(data){
+            console.log('game_countdown_push');
+            self.dispatchEvent("game_countdown",data);
+        });
     },
     
     doGuo:function(seatIndex,pai){

@@ -385,6 +385,7 @@ function sendOperations(game,seatData,pai) {
 
         //如果可以有操作，则进行操作
         userMgr.sendMsg(seatData.userId,'game_action_push',data);
+        exports.startCountdown(countEnum.mingpai, 5, seatData.userId);
 
         data.si = seatData.seatIndex;
     }
@@ -442,10 +443,14 @@ function doUserMoPai(game){
     //广播通知玩家出牌方
     turnSeat.canChuPai = true;
     userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
-    exports.startCountdown(countEnum.chupai, 10, turnSeat.userId);
 
     //通知玩家做对应操作
     sendOperations(game,turnSeat,game.chuPai);
+    if(hasOperations(turnSeat)) {
+        gameSeatsOfUsers[turnSeat.userId].zimoMingpai = true;
+    } else {
+        exports.startCountdown(countEnum.chupai, 10, turnSeat.userId);
+    }
 }
 
 function isSameType(type,arr){
@@ -1501,7 +1506,6 @@ exports.dingQue = function(userId,type){
         //通知玩家出牌方
         turnSeat.canChuPai = true;
         userMgr.broacastInRoom('game_chupai_push',turnSeat.userId,turnSeat.userId,true);
-        exports.startCountdown(countEnum.chupai, 10, turnSeat.userId);
         //检查是否可以暗杠或者胡
         //直杠
         checkCanAnGang(game,turnSeat);
@@ -1509,6 +1513,11 @@ exports.dingQue = function(userId,type){
         checkCanHu(game,turnSeat,turnSeat.holds[turnSeat.holds.length - 1]);
         //通知前端
         sendOperations(game,turnSeat,game.chuPai);
+        if(hasOperations(turnSeat)) {
+            gameSeatsOfUsers[turnSeat.userId].zimoMingpai = true;
+        } else {
+            exports.startCountdown(countEnum.chupai, 10, turnSeat.userId);
+        }
     }
     else{
         userMgr.broacastInRoom('game_dingque_notify_push',seatData.userId,seatData.userId,true);
@@ -2130,6 +2139,11 @@ exports.guo = function(userId){
 
     userMgr.sendMsg(seatData.userId,"guo_result");
     clearAllOptions(game,seatData);
+
+    //自摸鸣牌后过牌的情况
+    if(gameSeatsOfUsers[userId].zimoMingpai) {
+        exports.startCountdown(countEnum.chupai, 10, userId);
+    }
     
     //这里还要处理过胡的情况
     if(game.chuPai >= 0 && seatData.canHu){
@@ -2258,6 +2272,12 @@ exports.startCountdown = function(countTag, time, userId){
     if(countdownObject != null){
         exports.stopCountdown();
     }
+    let data = {
+        countTag,
+        time
+    };
+    userMgr.broacastInRoom('game_countdown_push',data,userId,true);
+
     countdownObject = setTimeout(function(){
         switch(countTag) {
             case countEnum.chupai:
@@ -2267,7 +2287,7 @@ exports.startCountdown = function(countTag, time, userId){
                 dingqueTimeout(userId);
                 break;
             case countEnum.mingpai:
-                mingpaiTimeout();
+                mingpaiTimeout(userId);
                 break;
         }
     }, 1000 * time);
@@ -2327,8 +2347,9 @@ function dingqueTimeout(userId) {
 /**
  * 鸣牌超时
  */
-function mingpaiTimeout() {
+function mingpaiTimeout(userId) {
     console.log("鸣牌超时");
+    exports.guo(userId);
 }
 
 function update() {

@@ -17,9 +17,16 @@ cc.Class({
         // },
         // ...
     },
+    
 
     // use this for initialization
     onLoad: function () {
+        this.countEnum = {
+            chupai:0,
+            dingque:1,
+            mingpai:2
+        };
+
         var gameChild = this.node.getChildByName("game");
         this._arrow = gameChild.getChildByName("arrow");
         this._pointer = this._arrow.getChildByName("pointer");
@@ -34,20 +41,23 @@ cc.Class({
             self.initPointer();
         });
         
-        this.node.on('game_chupai',function(data){
-            self._pointer.active = true;
+        this.node.on('game_countdown',function(data){
             self.initPointer();
-            self._time = 10;
+            self._time = data.time;
             self._alertTime = 3;
+            switch(data.countTag) {
+                case self.countEnum.chupai:
+                    self._pointer.active = true;
+                    break;
+                case self.countEnum.dingque:
+                    self._pointer.active = false;
+                    break;
+                case self.countEnum.mingpai:
+                    self._pointer.active = true;
+                    break;
+            }
         });
-
-        this.node.on('game_dingque',function(data){
-            self._pointer.active = false;
-            self.initPointer();
-            self._time = 15;
-            self._alertTime = 3;
-        });
-    }, 
+    },
     
     initPointer:function(){
         if(cc.vv == null){

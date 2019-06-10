@@ -196,6 +196,7 @@ exports.start = function(conf,mgr){
 			if(socket.userId == null){
 				return;
 			}
+			socket.gameMgr.stopCountdown();
 			socket.gameMgr.peng(socket.userId);
 		});
 		
@@ -215,6 +216,7 @@ exports.start = function(conf,mgr){
 				console.log("gang:invalid param");
 				return;
 			}
+			socket.gameMgr.stopCountdown();
 			socket.gameMgr.gang(socket.userId,pai);
 		});
 		
@@ -223,6 +225,7 @@ exports.start = function(conf,mgr){
 			if(socket.userId == null){
 				return;
 			}
+			socket.gameMgr.stopCountdown();
 			socket.gameMgr.hu(socket.userId);
 		});
 
@@ -231,6 +234,7 @@ exports.start = function(conf,mgr){
 			if(socket.userId == null){
 				return;
 			}
+			socket.gameMgr.stopCountdown();
 			socket.gameMgr.guo(socket.userId);
 		});
 		
