@@ -1,13 +1,14 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "26db4da3-a1a1-4145-99b8-dc05d712d1c4",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "peng_glow": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "0af3806a-fc3e-4554-ae11-72122fc2a87d",
       "rawTextureUuid": "26db4da3-a1a1-4145-99b8-dc05d712d1c4",
       "trimType": "auto",

@@ -194,6 +194,7 @@ exports.createRoom = function(creator,roomConf,gems,ip,port,callback){
 
 exports.destroy = function(roomId){
 	var roomInfo = rooms[roomId];
+	roomInfo.gameMgr.stopCountdown();
 	if(roomInfo == null){
 		return;
 	}

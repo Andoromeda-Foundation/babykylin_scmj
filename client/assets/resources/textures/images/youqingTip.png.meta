@@ -1,13 +1,14 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "2c9b7b23-1d41-4a46-bb3d-59f276d1d239",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "youqingTip": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "d8124940-c8ac-4655-87da-af4cb862de8f",
       "rawTextureUuid": "2c9b7b23-1d41-4a46-bb3d-59f276d1d239",
       "trimType": "auto",

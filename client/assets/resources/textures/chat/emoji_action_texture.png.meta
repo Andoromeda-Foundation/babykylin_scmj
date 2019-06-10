@@ -1,13 +1,14 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "2b6ea8a8-0ec2-4eb9-8013-1badbd3fbed2",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "emoji_action_texture": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "cdffd874-3c5c-4b12-9512-b08a00b6b00c",
       "rawTextureUuid": "2b6ea8a8-0ec2-4eb9-8013-1badbd3fbed2",
       "trimType": "auto",

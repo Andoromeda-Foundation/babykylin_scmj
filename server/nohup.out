@@ -1,0 +1,38 @@
+## There is an issue with `node-fibers` ##
+`C:\code\GitHub\babykylin_scmj\server\node_modules\fibers\bin\win32-x64-64\fibers.node` is missing.
+
+Try running this to fix the issue: C:\Program Files\nodejs\node.exe C:\code\GitHub\babykylin_scmj\server\node_modules\fibers/build
+C:\code\GitHub\babykylin_scmj\server\node_modules\fibers\fibers.js:20
+	throw new Error('Missing binary. See message above.');
+	^
+
+Error: Missing binary. See message above.
+    at Object.<anonymous> (C:\code\GitHub\babykylin_scmj\server\node_modules\fibers\fibers.js:20:8)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at Object.<anonymous> (C:\code\GitHub\babykylin_scmj\server\utils\http.js:4:14)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+## There is an issue with `node-fibers` ##
+`C:\code\GitHub\babykylin_scmj\server\node_modules\fibers\bin\win32-x64-64\fibers.node` is missing.
+
+Try running this to fix the issue: C:\Program Files\nodejs\node.exe C:\code\GitHub\babykylin_scmj\server\node_modules\fibers/build
+C:\code\GitHub\babykylin_scmj\server\node_modules\fibers\fibers.js:20
+	throw new Error('Missing binary. See message above.');
+	^
+
+Error: Missing binary. See message above.
+    at Object.<anonymous> (C:\code\GitHub\babykylin_scmj\server\node_modules\fibers\fibers.js:20:8)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at Object.<anonymous> (C:\code\GitHub\babykylin_scmj\server\utils\http.js:4:14)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)

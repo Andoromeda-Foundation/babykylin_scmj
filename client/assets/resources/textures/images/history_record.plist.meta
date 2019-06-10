@@ -9,7 +9,7 @@
   "type": "Texture Packer",
   "subMetas": {
     "hist_detail_list_cell_bg.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "9283cd92-ac83-457a-b2e0-acaf8c7c46e7",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -31,7 +31,7 @@
       "subMetas": {}
     },
     "hist_rec_backward.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "2799b8e3-7e4a-4963-a626-dedf9f936481",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -53,7 +53,7 @@
       "subMetas": {}
     },
     "hist_rec_bar.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b9e6033e-3d63-439a-bbcb-ef77a7574dcb",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -75,7 +75,7 @@
       "subMetas": {}
     },
     "hist_rec_bg.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "6d985fdd-4d46-4216-8f13-4a214f0c0977",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -97,7 +97,7 @@
       "subMetas": {}
     },
     "hist_rec_di1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "abe298a3-71f9-4e37-908d-007aa727983c",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -119,7 +119,7 @@
       "subMetas": {}
     },
     "hist_rec_di2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "229ca516-c90e-4092-9f73-2f758b46b2fb",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -141,7 +141,7 @@
       "subMetas": {}
     },
     "hist_rec_exit.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "ceddd85f-1240-4cce-81d8-d3cb25c13b31",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -163,7 +163,7 @@
       "subMetas": {}
     },
     "hist_rec_forward.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "0a32c3c0-32d3-4c09-9d87-2bc46021a29b",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -185,7 +185,7 @@
       "subMetas": {}
     },
     "hist_rec_frame.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "cba31817-ea68-42a5-a400-1b979dd6e434",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -207,7 +207,7 @@
       "subMetas": {}
     },
     "hist_rec_pause.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "1fdd675c-f41b-4fdf-9ff2-8f848772a92a",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -229,7 +229,7 @@
       "subMetas": {}
     },
     "hist_rec_play.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "fa12fbe4-a9f9-45ed-9abb-f44fd8887906",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -251,7 +251,7 @@
       "subMetas": {}
     },
     "hist_rec_play_bg.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "9935d202-1938-4b59-98b7-ba8383303d8c",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -273,7 +273,7 @@
       "subMetas": {}
     },
     "hist_rec_replay.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "c35aecc1-b59d-4b7b-a4c9-96ae664695f0",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -295,7 +295,7 @@
       "subMetas": {}
     },
     "hist_rec_title_1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "6d733fad-01cd-404f-bc0f-a2e262378be4",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -317,7 +317,7 @@
       "subMetas": {}
     },
     "hist_rec_title_2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "2a5d1317-547d-40b3-9360-1b876afa8189",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -339,7 +339,7 @@
       "subMetas": {}
     },
     "hist_rec_title_bg_1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "31f437f7-7887-42e3-8ed5-a251209d690c",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
@@ -361,7 +361,7 @@
       "subMetas": {}
     },
     "hist_rec_title_bg_2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "0406e813-de32-4d34-8de8-c2774ac54fb7",
       "rawTextureUuid": "74d44adb-7b0a-4799-95a2-1812ba98e8cf",
       "trimType": "auto",
