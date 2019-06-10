@@ -4,3 +4,4 @@
 server/game_server/node_modules
 server/account_server/node_modules
 server/hall_server/node_modules
+server/node_modules

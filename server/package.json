@@ -1,15 +1,17 @@
 {
-  "name": "game_server",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "configs_mac.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0",
-    "socket.io": "^1.4.6"
+    "mysql": "^2.11.1"
   }
 }
