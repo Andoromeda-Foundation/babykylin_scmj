@@ -355,6 +355,7 @@ cc.Class({
             self.isHuanSanZhang = false;
             self.gamestate = 'dingque';
             self.dispatchEvent('game_dingque');
+            console.log("开始定缺");
         });
         
         cc.vv.net.addHandler("game_huanpai_push",function(data){

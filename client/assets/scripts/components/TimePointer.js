@@ -35,12 +35,14 @@ cc.Class({
         });
         
         this.node.on('game_chupai',function(data){
+            self._pointer.active = true;
             self.initPointer();
             self._time = 10;
             self._alertTime = 3;
         });
 
         this.node.on('game_dingque',function(data){
+            self._pointer.active = false;
             self.initPointer();
             self._time = 15;
             self._alertTime = 3;
@@ -51,8 +53,7 @@ cc.Class({
         if(cc.vv == null){
             return;
         }
-        this._arrow.active = cc.vv.gameNetMgr.gamestate == "playing";
-        if(!this._arrow.active){
+        if(!(cc.vv.gameNetMgr.gamestate == "playing")){
             return;
         }
         var turn = cc.vv.gameNetMgr.turn;

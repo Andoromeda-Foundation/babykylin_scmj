@@ -141,7 +141,7 @@ cc.Class({
         }
         else if(side == "right"){
             pgroot.y = (index * 25 * 3);
-            pgroot.setLocalZOrder(-index);
+            pgroot.zIndex = -index;
         }
         else if(side == "myself"){
             pgroot.x = index * 55 * 3 + index * 10;                    
