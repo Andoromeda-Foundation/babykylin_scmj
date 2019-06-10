@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.11.1"
+    "mysql": "^2.11.1",
+    "fibers": "^4.0.1"
   }
 }
